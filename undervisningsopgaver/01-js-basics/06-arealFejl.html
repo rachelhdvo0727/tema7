@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+    <script>
+        let laengde = prompt("Angiv længde");
+        let bredde = prompt("Angiv bredde");
+
+        function areal(l, b) {
+            let a = (l * b);
+            if (a == 0) {
+                return (`Det er ikke en gyldig tal. \n Prøv igen`);
+            } else {
+                return (`Arealet er ${areal = (laengde, bredde)} kvadratmeter`);
+            }
+        }
+
+        let resultat = areal(laengde, bredde);
+        confirm(resultat);
+        if (confirm) {
+            location.reload();
+        }
+    </script>
+</body></html>
