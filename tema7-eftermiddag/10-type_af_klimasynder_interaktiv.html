@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+    <script>
+        let timer = prompt("Angiv timer af dit fly");
+        let C02 = 109;
+        //co2UdledtIKgVedFlyrejse = timer * 109;
+        function udregnCO2(timer, CO2) {
+            let a = timer * C02;
+            if (a == 0) {
+                return (`Det er ikke en gyldig tal. Prøv igen`);
+            } else {
+                return (`Ved ${timer} timers flyrejse har du udledt ${udregnCO2 = (timer, C02)} kg CO2.`);
+            }
+        }
+
+        let resultat = udregnCO2(timer, C02);
+        confirm(resultat);
+        if (confirm) {
+            location.reload();
+        }
+    </script>
+</body></html>
