@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <p>Hvor meget CO2 udleder du på en flyrejse?</p>
+    <input type="text" id="flyrejsen">
+
+    <button>Regn</button>
+
+    <script>
+        document.querySelector("button").addEventListener("click", udledningCo2);
+
+        function udledningCo2() {
+            let timer = document.querySelector("#flyrejsen").value;
+
+            const co2UdledtIKgVedFlyrejse = timer * 109;
+
+            console.log(`Ved ${timer} timers flyrejse har du udledt ${co2UdledtIKgVedFlyrejse} kg CO2`);
+        }
+    </script>
+</body></html>
