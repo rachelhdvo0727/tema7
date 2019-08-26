@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+    <p>Hvor meget CO2 udleder du på en flyrejse?</p>
+    <input type="text" id="flyrejsen">
+
+    <button>Regn</button>
+    <script>
+        document.querySelector("button").addEventListener("click", udledningCo2);
+
+        function udledningCo2() {
+            let timer = document.querySelector("#flyrejsen").value;
+
+            const co2UdledtIKgVedFlyrejse = timer * 109;
+
+            console.log(co2UdledtIKgVedFlyrejse);
+
+            if (co2UdledtIKgVedFlyrejse < 100) {
+                console.log(`Ved ${timer} timers flyrejse har du udledt ${co2UdledtIKgVedFlyrejse} kg CO2. Tæt på Thunberg.`);
+            } else if (co2UdledtIKgVedFlyrejse > 100 && co2UdledtIKgVedFlyrejse < 200) {
+                console.log(`Ved ${timer} timers flyrejse har du udledt ${co2UdledtIKgVedFlyrejse} kg CO2. Ja ja, du behøver ikke at melde dig ud af Å!`);
+            } else if (co2UdledtIKgVedFlyrejse >= 200 && co2UdledtIKgVedFlyrejse <= 600) {
+                console.log(`Ved ${timer} timers flyrejse har du udledt ${co2UdledtIKgVedFlyrejse} kg CO2. Det er godt for turismen i nordeuropa.`);
+            } else if (co2UdledtIKgVedFlyrejse > 600) {
+                console.log(`Ved ${timer} timers flyrejse har du udledt ${co2UdledtIKgVedFlyrejse} kg CO2. Nå ja vi kan jo altid kolonisere en anden planet.`);
+            }
+        }
+    </script>
+</body></html>
