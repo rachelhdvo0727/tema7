@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="content">
+        <div class="kea">
+        <a href="https://kea.dk">KEA</a>
+        </div>
+        <div class="git">
+        <a href="https://github.com/rachelhdvo0727">Min Github</a>
+        </div>
+        <div class="frog">
+        <img src="http://mabe-kea.dk/E19/pics/frog.png" alt="froggy">
+        </div>
+    </div>
+    <script>
+
+        const content = document.querySelector("#content");
+        const foerste = document.querySelector("#content div a");
+
+        //const anden = document.querySelector("#content div + div"); ELLER
+        const anden = document.querySelector("#content div:nth-child(3)");
+
+        const sidste = document.querySelector("#content div + div + div img");
+
+        console.log(content);
+        console.log(foerste);
+        console.log(anden);
+        console.log(sidste);
+
+
+       //content.textContent = "Link til KEAs hjemmeside";
+        content.innerHTML += "<h1>Link til KEAs hjemmeside</h1>";
+
+
+        //EN ANDEN MÅDE AT TAGE FAT I ELEMENTERNE - det er ikke nødvendigt at bruge let eller const
+        //let content = document.querySelector("#content");
+        //let foerst = document.querySelector(".kea");
+        //let anden = document.querySelector(".git");
+        //let sidste = document.querySelector(".frog");
+
+        //console.log(document.querySelector("#content"));
+        //console.log(document.querySelector("#content div"));
+        //console.log(document.querySelector("#content div + div"));
+        //console.log(document.querySelector("#content div + div + div"));
+        //console.log(document.querySelector("#content div + div a"));
+        //console.log(document.querySelector("img"));
+
+    </script>
+</body></html>
