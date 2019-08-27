@@ -21,9 +21,11 @@
     </style>
     <title>Document</title>
 </head>
+
 <body>
     <div id="green"></div>
     <div id="red"></div>
+
     <script>
 
   document.addEventListener("DOMContentLoaded", start);
@@ -32,7 +34,7 @@
     let red = document.querySelector("#red");
 
         function start(){
-
+console.log("start");
         green.innerHTML = "<img src='http://mabe-kea.dk/E19/pics/frog.png'  alt='grøn frø'>";
 
         red.innerHTML = "<img src='http://mabe-kea.dk/E19/pics/pig.png' alt='rød gris'>";
@@ -61,6 +63,7 @@
 
 
       //MED innerHTML
+
         //let greenURL = `http://mabe-kea.dk/E19/pics/frog.png`;
         //let redURL = `http://mabe-kea.dk/E19/pics/pig.png`;
 
@@ -77,13 +80,19 @@
         //document.querySelector("#red").innerHTML = `<img src=${redURL} alt="rød gris">`;
         //document.querySelector("#red").style.backgroundColor = "red";
 
-        //function byttePlads(){
+        //function greenskift(){
             //let greenStart = green.style.backgroundColor;
+
              //green.style.backgroundColor; = red.style.backgroundColor;
+
              //red.style.backgroundColor; = greenStart;}
 
-         //function stop(){
-             //green.removeEventListener("click", byttePlads);}}
+         ///function redskift(){
+            //let redStart = green.style.backgroundColor;
+
+             //green.style.backgroundColor; = red.style.backgroundColor;
+
+             //red.style.backgroundColor; = redStart;}}
 
 
     </script>
