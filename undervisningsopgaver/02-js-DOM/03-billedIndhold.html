@@ -25,16 +25,24 @@
     <div id="green"></div>
     <div id="red"></div>
     <script>
-    const green = document.querySelector("#green");
-    const red = document.querySelector("#red");
+
+    //let green = document.querySelector("#green");
+    //let red = document.querySelector("#red");
 
         //green.textContent = "Grøn firkant";
-        green.innerHTML = "<img src='http://mabe-kea.dk/E19/pics/frog.png'>";
-        //green.style.verticalAlign = "middle";
+        //green.innerHTML = "<img src='http://mabe-kea.dk/E19/pics/frog.png'>";
 
-        red.textContent = "Rød cirkel";
-        red.innerHTML = "<img src='http://mabe-kea.dk/E19/pics/pig.png'>";
-        //red.style.verticalAlign = "middle";
+
+        //red.textContent = "Rød cirkel";
+        //red.innerHTML = "<img src='http://mabe-kea.dk/E19/pics/pig.png'>";
+
+        //EN ANDEN MÅDE AT LØSE OPGAVEN
+        let greenURL = `http://mabe-kea.dk/E19/pics/frog.png`;
+        let redURL = `http://mabe-kea.dk/E19/pics/pig.png`;
+
+        document.querySelector("#green").innerHTML = `<img src=${greenURL} alt="grøn frø">`;
+
+        document.querySelector("#red").innerHTML = `<img src=${redURL} alt="rød gris">`;
     </script>
 </body>
 </html>
