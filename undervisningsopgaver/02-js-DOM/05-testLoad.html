@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #green{
+            background-color: green;
+            height: 40vw;
+            width: 40vw;
+            line-height: 200px;
+            text-align: center;
+        }
+
+        #red{
+            background-color: red;
+            height: 30vw;
+            width: 30vw;
+            border-radius: 50%;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div id="green"></div>
+    <div id="red"></div>
+    <script>
+
+    //let green = document.querySelector("#green");
+    //let red = document.querySelector("#red");
+
+        //green.textContent = "Grøn firkant";
+        //green.innerHTML = "<img src='http://mabe-kea.dk/E19/pics/frog.png'>";
+
+
+        //red.textContent = "Rød cirkel";
+        //red.innerHTML = "<img src='http://mabe-kea.dk/E19/pics/pig.png'>";
+
+        //EN ANDEN MÅDE AT LØSE OPGAVEN
+        let greenURL = `http://mabe-kea.dk/E19/pics/frog.png`;
+        let redURL = `http://mabe-kea.dk/E19/pics/pig.png`;
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start(){
+
+        document.querySelector("#green").innerHTML = `<img src=${greenURL} alt="grøn frø">`;
+
+        document.querySelector("#red").innerHTML = `<img src=${redURL} alt="rød gris">`;
+        }
+
+    </script>
+</body>
+</html>
