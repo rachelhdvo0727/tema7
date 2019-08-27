@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         #green{
-            background-color: green;
             line-height: 200px;
             height: 40vw;
             width: 40vw;
@@ -13,7 +12,6 @@
         }
 
         #red{
-            background-color: red;
             line-height: 200px;
             height: 30vw;
             width: 30vw;
@@ -33,27 +31,32 @@
     let green = document.querySelector("#green");
     let red = document.querySelector("#red");
 
-
-
         function start(){
 
         green.innerHTML = "<img src='http://mabe-kea.dk/E19/pics/frog.png'  alt='grøn frø'>";
 
         red.innerHTML = "<img src='http://mabe-kea.dk/E19/pics/pig.png' alt='rød gris'>";
 
-        green.addEventListener("click", byttePlads);
-        red.addEventListener("click", stop);
+        green.style.backgroundColor = "green";
+        red.style.backgroundColor = "red";
 
-        function byttePlads(){
-            let greenStart = green.innerHTML;
-             green.innerHTML = red.innerHTML;
-             red.innerHTML = greenStart;
+        green.addEventListener("click", greenskift);
+        red.addEventListener("click", redskift);
+
+            function greenskift(){
+            let greenStart = green.style.backgroundColor;
+
+            green.style.backgroundColor = red.style.backgroundColor;
+
+            red.style.backgroundColor = greenStart;
         }
+            function redskift(){
+            let redStart = green.style.backgroundColor;
 
-         function stop(){
-             green.removeEventListener("click", byttePlads);
-         }
+            green.style.backgroundColor = red.style.backgroundColor;
 
+            red.style.backgroundColor = redStart;
+        }
         }
 
 
@@ -68,13 +71,16 @@
         //let red = document.querySelector("#red");
 
         //document.querySelector("#green").innerHTML = `<img src=${greenURL} alt="grøn frø">`;
+        //document.querySelector("#green").style.backgroundColor = "green";;
+
 
         //document.querySelector("#red").innerHTML = `<img src=${redURL} alt="rød gris">`;
+        //document.querySelector("#red").style.backgroundColor = "red";
 
         //function byttePlads(){
-            //let greenStart = green.innerHTML;
-             //green.innerHTML = red.innerHTML;
-             //red.innerHTML = greenStart;}
+            //let greenStart = green.style.backgroundColor;
+             //green.style.backgroundColor; = red.style.backgroundColor;
+             //red.style.backgroundColor; = greenStart;}
 
          //function stop(){
              //green.removeEventListener("click", byttePlads);}}
