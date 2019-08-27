@@ -28,28 +28,50 @@
     <div id="red"></div>
     <script>
 
+  document.addEventListener("DOMContentLoaded", start);
+
     let green = document.querySelector("#green");
     let red = document.querySelector("#red");
 
-        //green.textContent = "Grøn firkant";
+
+
+        function start(){
+
         green.innerHTML = "<img src='http://mabe-kea.dk/E19/pics/frog.png'  alt='grøn frø'>";
 
-
-        //red.textContent = "Rød cirkel";
         red.innerHTML = "<img src='http://mabe-kea.dk/E19/pics/pig.png' alt='rød gris'>";
 
-        document.querySelector("#green").addEventListener("click", byttePlads);
+        green.addEventListener("click", byttePlads);
+        red.addEventListener("click", stop);
 
-        function byttePlads (){
-    red.innerHTML = "<img src='http://mabe-kea.dk/E19/pics/pig.png' alt='rød gris'>";
-}
-        //EN ANDEN MÅDE AT LØSE OPGAVEN
+        function byttePlads(){
+            let greenStart = green.innerHTML
+             green.innerHTML = red.innerHTML;
+             red.innerHTML = greenStart;
+        }
+
+         function stop(){
+             green.removeEventListener("click", byttePlads);
+         }
+
+        }
+
+
+
+
+
+      //Med innerHTML
         //let greenURL = `http://mabe-kea.dk/E19/pics/frog.png`;
         //let redURL = `http://mabe-kea.dk/E19/pics/pig.png`;
 
+        //document.addEventListener("DOMContentLoaded", start);
+
+        //function start(){
+
         //document.querySelector("#green").innerHTML = `<img src=${greenURL} alt="grøn frø">`;
 
-        //document.querySelector("#red").innerHTML = `<img src=${redURL} alt="rød gris">`;
+        //document.querySelector("#red").innerHTML = `<img src=${redURL} alt="rød gris">`;}
+
     </script>
 </body>
 </html>
