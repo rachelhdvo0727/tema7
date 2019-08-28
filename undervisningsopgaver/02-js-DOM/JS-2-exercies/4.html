@@ -78,10 +78,20 @@
     <script>
         document.addEventListener("DOMContentLoaded", start);
 
+        let boksen = document.querySelector("#box");
+        let glad = boksen.innerHTML = "<img src='selvportraet_rachel.png' width='95%' alt='rachel_glad'>";
+
         function start() {
             console.log("start");
 
+            boksen.innerHTML = "<img src='sur.png' width='95%' alt='rachel_sur'>";
+            boksen.addEventListener("click", skift);
 
+            function skift() {
+                console.log("skift");
+                boksen.innerHTML = "<img src='selvportraet_rachel.png' width='95%' alt='rachel_glad'>";
+                //$("glad").toggle();
+            }
         }
     </script>
 </body></html>
