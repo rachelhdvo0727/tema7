@@ -79,7 +79,6 @@
         document.addEventListener("DOMContentLoaded", start);
 
         let boksen = document.querySelector("#box");
-        let glad = boksen.innerHTML = "<img src='selvportraet_rachel.png' width='95%' alt='rachel_glad'>";
 
         function start() {
             console.log("start");
@@ -89,8 +88,8 @@
 
             function skift() {
                 console.log("skift");
+
                 boksen.innerHTML = "<img src='selvportraet_rachel.png' width='95%' alt='rachel_glad'>";
-                //$("glad").toggle();
             }
         }
     </script>
