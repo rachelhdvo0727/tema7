@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A</title>
+    <style>
+        #box,
+        #bax {
+            width: 200px;
+            height: 200px;
+            background-color: wheat;
+            padding: 20px;
+            margin: 10px;
+        }
+
+        button {
+            font-size: 2rem;
+            margin: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <button id="klik">
+        klik
+    </button>
+    <button id="slet">
+        slet
+    </button>
+    <button id="html">
+        html
+    </button>
+    <button id="flyt">
+        flyt
+    </button>
+    <div id="box"></div>
+    <div id="bax"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        let boxcontent = document.querySelector("#box");
+        let baxcontent = document.querySelector("#bax");
+        const buttonKlik = document.querySelector("#klik");
+        const buttonSlet = document.querySelector("#slet");
+        const buttonHTML = document.querySelector("#html");
+        const buttonFlyt = document.querySelector("#flyt");
+
+        function start() {
+            console.log("start");
+
+            buttonKlik.addEventListener("click", visNoget);
+            buttonSlet.addEventListener("click", boxResettes);
+            buttonHTML.addEventListener("click", visElement);
+            buttonFlyt.addEventListener("click", flytHTML);
+
+            function visNoget() {
+                console.log("visNoget");
+                boxcontent.textContent = "KLIK";
+            }
+
+            function boxResettes() {
+                console.log("boxResettes");
+                buttonKlik.removeEventListener("click", visNoget);
+                boxcontent.textContent = "";
+            }
+
+            function visElement() {
+                console.log("visElement");
+                boxcontent.innerHTML = `<h2>Halløjsa</h2><p>lorem ipsum</p>`;
+            }
+
+            function flytHTML() {
+                console.log("flytHTML");
+                boxcontent.innerHTML = "";
+                baxcontent.innerHTML = `<h2>Halløjsa</h2><p>lorem ipsum</p>`;
+            }
+        }
+    </script>
+</body></html>
