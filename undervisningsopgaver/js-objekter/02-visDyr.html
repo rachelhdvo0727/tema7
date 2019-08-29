@@ -9,7 +9,6 @@
 
 <body>
     <article>
-        <img src="" alt="">
     </article>
     <script>
         document.addEventListener("DOMContentLoaded", start);
@@ -20,26 +19,18 @@
             "billed": "http://mabe-kea.dk/E19/pics/pig.png",
             "levested": "svinefarm"
         }
+
         const showContent = document.querySelector("article");
-        const grisBilled = document.querySelector("img").src = object.billed;
-        //const gris = img.src = object.billed;
+        let grisBilled = document.createElement("IMG");
 
         function start() {
             console.log("start");
 
             showContent.textContent = "Dyr: " + object.dyr + " type: " + object.type + " levested: " + object.levested;
 
-            showContent.textContent = grisBilled;
+            grisBilled.setAttribute("src", "http://mabe-kea.dk/E19/pics/pig.png");
+            document.body.appendChild(grisBilled);
+
         }
-
-        //const navnContainer = document.querySelector("h1");
-        //const typeContainer = document.querySelector(".type");
-        //const billedContainer = document.querySelector("img");
-        //const levestedContainer = document.querySelector(".levested");
-
-        //navnContainer.textContent = `${object.dyr}`;
-        //typeContainer.textContent = `${object.type}`;
-        //billedContainer.src = object.billed;
-        //levestedContainer.textContent = `${object.levested}`;
     </script>
 </body></html>
