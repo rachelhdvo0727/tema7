@@ -7,8 +7,23 @@
     <title></title>
     <style>
         article {
+            grid-gap: 10px;
             border: solid 1px black;
-            margin: 2vw;
+            padding: 5px;
+        }
+
+        @media screen and (min-width:600px) {
+            article {
+                display: grid;
+                grid-template-columns: auto;
+            }
+        }
+
+        @media screen and (min-width:780px) {
+            article {
+                display: inline-grid;
+                grid-template-columns: 4fr;
+            }
         }
     </style>
 </head>
