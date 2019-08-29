@@ -7,11 +7,11 @@
 </head>
 
 <body>
-    <section id="list"></section>
+    <section id="liste"></section>
     <script>
         document.addEventListener("DOMContentLoaded", start);
 
-        let list = [{
+        let dyrliste = [{
                 "navn": "gris",
                 "type": "pattedyr",
                 "billed": "http://mabe-kea.dk/E19/pics/pig.png",
@@ -45,11 +45,11 @@
 
 
         function start() {
-            console.log(list);
+            console.log(liste);
 
-            const listeindhold = document.querySelector("#list");
+            const listeindhold = document.querySelector("#liste");
 
-            list.forEach(dyr => {
+            dyrliste.forEach(dyr => {
                 listeindhold.innerHTML += `<p>${dyr.navn}, ${dyr.type} fra ${dyr.levested}</p>`
             })
         }

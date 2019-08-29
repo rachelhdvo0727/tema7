@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="da">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,20 @@
 </head>
 
 <body>
-    <section id="list">
+    <section id="liste">
     </section>
     <template>
-
+        <article class="dyrene">
+            <h1></h1>
+            <img src="" alt="">
+            <p class="type"></p>
+            <p class="levested"></p>
+        </article>
     </template>
     <script>
         document.addEventListener("DOMContentLoaded", start);
 
-        let list = [{
+        let dyrene = [{
                 "navn": "gris",
                 "type": "pattedyr",
                 "billed": "http://mabe-kea.dk/E19/pics/pig.png",
@@ -49,12 +55,19 @@
 
 
         function start() {
-            console.log(list);
+            console.log(dyrene);
 
-            const listeindhold = document.querySelector("#list");
+            const listeindhold = document.querySelector("#liste");
 
-            list.forEach(dyr => {
-                listeindhold.innerHTML += `<p>${dyr.navn}, ${dyr.type} fra ${dyr.levested}</p>`
+            const dyrTemplate = document.querySelector("template");
+
+            dyrene.forEach(dyr => {
+                let klon = dyrTemplate.cloneNode(true).content;
+                klon.querySelector("h1").textContent = dyr.navn;
+                klon.querySelector("img").src = dyr.billed;
+                klon.querySelector(".type").textContent = `Type: ${dyr.type}`;
+                klon.querySelector(".levested").textContent = `Levested: ${dyr.levested}`;
+                listeindhold.appendChild(klon);
             })
         }
     </script>
