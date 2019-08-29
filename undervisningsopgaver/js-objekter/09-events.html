@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        img {
+            width: 30%;
+        }
+
+        article {
+            display: grid;
+            grid-gap: 10px;
+            border: solid 1px black;
+            padding: 5px;
+        }
+
+        @media screen and (min-width:600px) {
+            article {
+                grid-template-columns: auto;
+            }
+        }
+
+        @media screen and (min-width:780px) {
+            article {
+                display: inline-grid;
+                grid-template-columns: 5fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section id="liste"></section>
+    <template>
+        <article>
+            <img src="" alt="">
+            <h1></h1>
+            <p class="intro"></p>
+            <h6></h6>
+        </article>
+    </template>
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+        let events = [{
+                "billed": "https://dit-roskilde.dk/wp-content/uploads/2019/08/Cykelulykker-200x150.jpg",
+                "navn": "Ældre er overrepræsenteret i cyklistulykker",
+                "intro": "Når man har passeret pensionsalderen, er der rig mulighed for at leve et aktivt liv, hvilket mange seniorer heldigvis gør. Men desværre viser ulykkestallene, at alt for mange personer over 65 år også kommer til skade, når de bevæger sig rundt på cykel.",
+                "dato": "23. august 2019"
+            }, {
+                "billed": "https://dit-roskilde.dk/wp-content/uploads/2019/08/abw-regnvejr-paraply-200x150.jpg",
+                "navn": "Oprydning efter skybrud kan være farligt",
+                "intro": "Når vandet fosser ind i boligen eller virksomheden som følge af et skybrud, har de fleste mennesker kun én tanke i hovedet: at redde, hvad der reddes kan, og få det indtrængende vand stoppet i en pokkers fart.",
+                "dato": "22. august 2019"
+            },
+            {
+                "billed": "https://dit-roskilde.dk/wp-content/uploads/2019/08/Roskilde-Byl%C3%B8b-b%C3%B8rn-august-2019-abw-7-200x150.jpg",
+                "navn": "Roskilde Byløb 2019",
+                "intro": "Børneløbet blev skudt i gang kl. 18.00 og der var fart på de små ben! Dit Roskilde var et hurtigt smut forbi.",
+                "dato": "22. august 2019"
+            }, {
+                "billed": "https://dit-roskilde.dk/wp-content/uploads/2019/08/kronprinsen2010_Territorium-200x150.jpg",
+                "navn": "H.K.H. Kronprinsen åbner Naturens Dag 2019",
+                "intro": "5. klasse fra Bramsnæsvigskolen får sved på panden, når de sammen med Hans Kongelige Højhed Kronprinsen skyder Naturens Dag i gang i det betagende landskab i Ejby Ådal ved Roskilde..",
+                "dato": "22. august 2019"
+            }, {
+                "billed": "https://dit-roskilde.dk/wp-content/uploads/2019/08/Lego_robot-200x150.jpg",
+                "navn": "Skandinavisk Lego finale kommer til Roskilde",
+                "intro": "Skoleelever fra Danmark, Norge og Sverige dyster hvert år i november i den skandinaviske finale i First Lego League – verdens største teknologi- og projektturnering for 10-16 årige. Og i år kommer det til at foregå i Roskilde Kongrescenter Bauhaus Arena.",
+                "dato": "22. august 2019"
+            }
+        ]
+
+        function start() {
+            console.log(events);
+            const listeindhold = document.querySelector("#liste");
+            const eventsTemplate = document.querySelector("template");
+
+            events.forEach(event => {
+                let klon = eventsTemplate.cloneNode(true).content;
+
+                klon.querySelector("img").src = event.billed;
+                klon.querySelector("h1").textContent = event.navn;
+                klon.querySelector("p").textContent = event.intro;
+                klon.querySelector("h6").textContent = event.dato;
+                listeindhold.appendChild(klon);
+
+            })
+        }
+    </script>
+</body></html>

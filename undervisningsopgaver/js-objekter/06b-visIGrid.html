@@ -7,6 +7,7 @@
     <title></title>
     <style>
         article {
+            display: grid;
             grid-gap: 10px;
             border: solid 1px black;
             padding: 5px;
@@ -14,8 +15,7 @@
 
         @media screen and (min-width:600px) {
             article {
-                display: grid;
-                grid-template-columns: auto;
+                grid-template-columns: 1fr;
             }
         }
 
