@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <article>
+        <img src="" alt="">
+    </article>
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        const object = {
+            "dyr": "gris",
+            "type": "pattedyr",
+            "billed": "http://mabe-kea.dk/E19/pics/pig.png",
+            "levested": "svinefarm"
+        }
+        const showContent = document.querySelector("article");
+        const grisBilled = document.querySelector("img").src = object.billed;
+        //const gris = img.src = object.billed;
+
+        function start() {
+            console.log("start");
+
+            showContent.textContent = "Dyr: " + object.dyr + " type: " + object.type + " levested: " + object.levested;
+
+            showContent.textContent = grisBilled;
+        }
+
+        //const navnContainer = document.querySelector("h1");
+        //const typeContainer = document.querySelector(".type");
+        //const billedContainer = document.querySelector("img");
+        //const levestedContainer = document.querySelector(".levested");
+
+        //navnContainer.textContent = `${object.dyr}`;
+        //typeContainer.textContent = `${object.type}`;
+        //billedContainer.src = object.billed;
+        //levestedContainer.textContent = `${object.levested}`;
+    </script>
+</body></html>
