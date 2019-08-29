@@ -7,9 +7,11 @@
 </head>
 
 <body>
+    <section id="list"></section>
     <script>
-        //document.addEventListener("DOMContentLoaded", start);
-        let dyr = [{
+        document.addEventListener("DOMContentLoaded", start);
+
+        let list = [{
                 "navn": "gris",
                 "type": "pattedyr",
                 "billed": "http://mabe-kea.dk/E19/pics/pig.png",
@@ -41,8 +43,15 @@
             }
         ];
 
-        console.log(dyr)
 
-        //function start() {}
+        function start() {
+            console.log(list);
+
+            const listeindhold = document.querySelector("#list");
+
+            list.forEach(dyr => {
+                listeindhold.innerHTML += `<p>${dyr.navn}, ${dyr.type} fra ${dyr.levested}</p>`
+            })
+        }
     </script>
 </body></html>
