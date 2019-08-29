@@ -28,7 +28,7 @@
 
             showContent.textContent = "Dyr: " + object.dyr + " type: " + object.type + " levested: " + object.levested;
 
-            grisBilled.setAttribute("src", "http://mabe-kea.dk/E19/pics/pig.png");
+            grisBilled.setAttribute("src", `${object.billed}`);
             document.body.appendChild(grisBilled);
 
         }
