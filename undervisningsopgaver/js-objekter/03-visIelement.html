@@ -11,8 +11,8 @@
     <article>
         <h3></h3>
         <img src="" alt="">
-        <p>Type: </p>
-        <p>Levested: </p>
+        <p>Type: <span></span> </p>
+        <p>Levested:<span class="text2"></span> </p>
     </article>
     <script>
         document.addEventListener("DOMContentLoaded", start);
@@ -28,6 +28,7 @@
         let navn = document.querySelector("h3");
         let billed = document.querySelector("img");
         let text = document.querySelector("p");
+        let text2 = document.querySelector(".text2");
 
         function start() {
             console.log("start");
@@ -36,7 +37,8 @@
 
             navn.textContent = object.dyr;
             billed.src = object.billed;
-
+            text.textContent += object.type;
+            text2.textContent += object.levested;
         }
     </script>
 </body></html>
