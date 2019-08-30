@@ -15,6 +15,7 @@
             grid-gap: 10px;
             border: solid 1px black;
             padding: 5px;
+            grid-area: 3px;
         }
 
         @media screen and (min-width:600px) {
@@ -26,9 +27,17 @@
         @media screen and (min-width:780px) {
             article {
                 display: inline-grid;
-                grid-template-columns: 5fr;
+                grid-template-columns: repeat(2, 1fr);
             }
         }
+
+        @media screen and (min-width:1000px) {
+            article {
+                display: inline-grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
     </style>
 </head>
 
@@ -89,5 +98,8 @@
 
             })
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
