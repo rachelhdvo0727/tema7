@@ -12,6 +12,7 @@
             margin: 3vw;
             padding: 3vw;
         }
+
     </style>
 </head>
 
@@ -30,27 +31,25 @@
         document.addEventListener("DOMContentLoaded", hentJson);
         let dyrene;
 
-
-        //console.log();
-
-        const listeindhold = document.querySelector("#liste");
-
-        const dyrTemplate = document.querySelector("template");
-
         async function hentJson() {
             //hent data filen
             const myJson = await fetch("dyr.json");
+
             //den hentede data skal tolkes som json - brug variablen (lige før på linje 42).
             dyrene = await myJson.json();
-
             console.log(dyrene);
-            visDyrene();
 
+            //den næste function - vis datalisten på siden
+            visDyrene();
         }
 
         function visDyrene() {
+            const listeindhold = document.querySelector("#liste");
+            const dyrTemplate = document.querySelector("template");
+
             dyrene.forEach(dyr => {
                 let klon = dyrTemplate.cloneNode(true).content;
+
                 klon.querySelector("h1").textContent = dyr.navn;
                 klon.querySelector("img").src = dyr.billed;
                 klon.querySelector(".type").textContent = `Type: ${dyr.type}`;
@@ -58,5 +57,8 @@
                 listeindhold.appendChild(klon);
             })
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
