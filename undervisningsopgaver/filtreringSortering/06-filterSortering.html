@@ -49,14 +49,18 @@
 <body>
 
     <nav>
-        <button class="filter valgt" data-køn="alle">Alle</button>
-        <button class="filter" data-køn="m">Mænd</button>
-        <button class="filter" data-køn="k">Kvinder</button>
-        <button class="filter" data-køn="andet">Andet</button>
+        <button class="filter valgt" data-køn="alle" data-hold="alle">Alle</button>
+        <button class="filter" data-køn="k" data-hold="alle">Kvinder</button>
+        <button class="filter" data-køn="m" data-hold="alle">Mænd</button>
+        <button class="filter" data-køn="andet" data-hold="alle">Andet</button>
+        <button class="filter" data-køn="m" data-hold="a">Mænd - Hold A</button>
+        <!---button class="filter" data-køn="alle" data-hold="b" >Hold B</button--->
     </nav>
+
     <h1>Alle</h1>
     <section id="liste">
     </section>
+
     <template>
         <article>
             <div class="item">
@@ -71,16 +75,17 @@
             </div>
         </article>
     </template>
+
     <script>
         let personer;
-        let filter = "alle";
+        let filterHold = "alle";
+        let filterKøn = "alle";
         const listeindhold = document.querySelector("#liste");
         const personTemplate = document.querySelector("template");
 
         document.addEventListener("DOMContentLoaded", hentJson);
 
         async function hentJson() {
-
             //hent data filen
             const myJson = await fetch("https://spreadsheets.google.com/feeds/list/1Xge7slZ9dEOTCn1Yxl3OE4xgvrXOL8Y_iu3WN1yGB1U/od6/public/values?alt=json");
 
@@ -98,8 +103,7 @@
             listeindhold.innerHTML = "";
 
             personer.feed.entry.forEach(person => {
-
-                if (filter == "alle" || filter == person.gsx$køn.$t) {
+                if ((filterKøn == "alle" || filterKøn == person.gsx$køn.$t) && (filterHold == "alle" || filterHold == person.gsx$hold.$t)) {
 
                     const klon = personTemplate.cloneNode(true).content;
 
@@ -107,12 +111,7 @@
                     klon.querySelector("img").src = person.gsx$billede.$t;
                     klon.querySelector("a").textContent = person.gsx$github.$t;
                     klon.querySelector(".email").textContent = `Email: ${person.gsx$email.$t}`;
-
-                    //klon.querySelector(".alder").textContent = `Alder: ${person.gsx$alder.$t}`;
-                    //klon.querySelector(".koen").textContent = `Køn: ${person.gsx$køn.$t}`;
-                    //klon.querySelector(".hold").textContent = `Hold: ${person.gsx$hold.$t}`;
-                    //klon.querySelector(".historie").textContent = `Historie: ${person.gsx$historie.$t}`;
-
+                    klon.querySelector(".hold").textContent = `Hold: ${person.gsx$hold.$t}`;
                     listeindhold.appendChild(klon);
                 }
 
@@ -130,11 +129,13 @@
         function filtrering() {
             filter = this.dataset.køn;
 
+            filter = this.dataset.hold;
+
             document.querySelector("h1").textContent = this.textContent;
 
             document.querySelectorAll(".filter").forEach(elm => {
                 elm.classList.remove("valgt");
-            })
+            });
             this.classList.add("valgt");
             //vis datalisten på siden
             visPersoner();

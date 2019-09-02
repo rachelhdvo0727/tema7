@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Babushka restaurant</title>
+    <style>
+        img {
+            width: 100%;
+        }
+
+        article {
+            display: grid;
+            margin: auto 0;
+            grid-gap: 3vw;
+        }
+
+        article:nth-child(odd) {
+            background-color: grey;
+        }
+
+        .item {
+            padding: 3vw;
+        }
+
+        nav {
+            text-align: center;
+            margin: 2vw;
+        }
+
+        .valgt {
+            background-color: orange;
+        }
+
+    </style>
+</head>
+
+<body>
+    <section id="splash">splash</section>
+    <nav>
+        <button class="filter valgt" data-kategori="alle">Alle</button>
+        <button class="filter" data-kategori="forretter">Forretter</button>
+        <button class="filter" data-kategori="hovedretter">Hovedretter</button>
+        <button class="filter" data-kategori="desserter">Desserter</button>
+        <button class="filter" data-kategori="drikkevarer">Drikkevarer</button>
+    </nav>
+    <h1>Menu</h1>
+    <section id="indhold"></section>
+    <template>
+        <article>
+            <div class="item">
+                <img src="" alt="">
+                <h2></h2>
+                <p class="text"></p>
+                <p class="pris"></p>
+            </div>
+        </article>
+    </template>
+    <footer></footer>
+    <script>
+        let retter;
+        const menuList = document.querySelector("#indhold");
+        const retTemplate = document.querySelector("template");
+
+
+        document.addEventListener("DOMContentLoaded", hentJson);
+
+        async function hentJson() {
+            const minJson = await fetch("https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json");
+
+            retter = await minJson.json();
+            console.log(retter);
+
+            visMenuListen();
+        }
+
+        function visMenuListen() {
+            retter.feed.entry.forEach(ret => {
+                let klon = retTemplate.cloneNode(true).content;
+
+                //klon.querySelector("img").src =
+                klon.querySelector("h2").textContent = ret.gsx$navn.$t;
+                klon.querySelector(".text").textContent = ret.gsx$kort.$t;
+                klon.querySelector(".pris").textContent = `Pris: ${ret.gsx$pris.$t},- kr.`;
+
+                menuList.appendChild(klon);
+            })
+        }
+
+    </script>
+</body>
+
+</html>
