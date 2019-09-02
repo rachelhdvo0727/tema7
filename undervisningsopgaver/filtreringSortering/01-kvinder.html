@@ -26,7 +26,7 @@
             background-color: yellow;
         }
 
-        #filterknap {
+        nav {
             text-align: center;
             margin: 3vw;
         }
@@ -46,12 +46,12 @@
 </head>
 
 <body>
-    <section id="filterknap">
-        <button class="filter" data-køn="alle">Alle</button>
+    <nav>
+        <button class="filter valgt" data-køn="alle">Alle</button>
         <button class="filter" data-køn="m">Mænd</button>
-        <button class="filter valgt" data-køn="k">Kvinder</button>
+        <button class="filter" data-køn="k">Kvinder</button>
         <button class="filter" data-køn="andet">Andet</button>
-    </section>
+    </nav>
     <section id="liste">
     </section>
     <template>
@@ -69,8 +69,12 @@
         </article>
     </template>
     <script>
-        document.addEventListener("DOMContentLoaded", hentJson);
         let personer;
+        let filter = "alle";
+        const listeindhold = document.querySelector("#liste");
+        const personTemplate = document.querySelector("template");
+
+        document.addEventListener("DOMContentLoaded", hentJson);
 
         async function hentJson() {
 
@@ -83,18 +87,16 @@
 
             //vis datalisten på siden
             visPersoner();
+            addEventListenersToButtons();
+
         }
 
         function visPersoner() {
-            const listeindhold = document.querySelector("#liste");
-            const personTemplate = document.querySelector("template");
-
-            //Køn = k eller m i Googlesheets
-            let filter = "k";
+            listeindhold.innerHTML = "";
 
             personer.feed.entry.forEach(person => {
 
-                if (person.gsx$køn.$t == filter) {
+                if (filter == "alle" || filter == person.gsx$køn.$t) {
 
                     const klon = personTemplate.cloneNode(true).content;
 
@@ -112,6 +114,21 @@
                 }
 
             })
+
+
+        }
+
+        function addEventListenersToButtons() {
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.addEventListener("click", filtrering);
+            })
+        }
+
+        function filtrering() {
+            filter = this.dataset.køn;
+
+            //vis datalisten på siden
+            visPersoner();
         }
     </script>
 </body></html>
