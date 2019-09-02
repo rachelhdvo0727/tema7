@@ -53,7 +53,7 @@
         <button class="filter" data-køn="k">Kvinder</button>
         <button class="filter" data-køn="andet">Andet</button>
     </nav>
-    <h1>Alle</h1>
+
     <section id="liste">
     </section>
     <template>
@@ -128,12 +128,6 @@
 
         function filtrering() {
             filter = this.dataset.køn;
-
-            document.querySelector("h1").textContent = this.textContent;
-            document.querySelectorAll(".filter").forEach(elm => {
-                elm.classList.remove("valgt");
-            })
-            this.classList.add("valgt");
             //vis datalisten på siden
             visPersoner();
         }
