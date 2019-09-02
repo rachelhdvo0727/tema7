@@ -33,7 +33,6 @@
                 grid-template-columns: repeat(3, 1fr);
             }
         }
-
     </style>
 </head>
 
@@ -80,15 +79,12 @@
                 klon.querySelector("img").src = person.gsx$billede.$t;
                 klon.querySelector("a").textContent = person.gsx$github.$t;
                 klon.querySelector(".email").textContent = `Email: ${person.gsx$email.$t}`;
-                //klon.querySelector(".alder").textContent = `Alder: ${person.gsx$alder.$st}`;
-                //klon.querySelector(".koen").textContent = `Køn: ${person.gsx$køn.$st}`;
-                //klon.querySelector(".hold").textContent = `Hold: ${person.gsx$hold.$st}`;
-                //klon.querySelector(".historie").textContent = `Historie: ${person.gsx$historie.$st}`;
+                klon.querySelector(".alder").textContent = `Alder: ${person.gsx$alder.$t}`;
+                klon.querySelector(".koen").textContent = `Køn: ${person.gsx$køn.$t}`;
+                klon.querySelector(".hold").textContent = `Hold: ${person.gsx$hold.$t}`;
+                klon.querySelector(".historie").textContent = `Historie: ${person.gsx$historie.$t}`;
                 listeindhold.appendChild(klon);
             })
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
