@@ -25,17 +25,44 @@
             margin: 5vw;
         }
 
-        article {
-            padding: 0.5vw;
+        article,
+        .box {
+            padding: 1vw;
         }
 
         .valgt {
             background-color: orange;
         }
 
+        footer {
+            display: inline-grid;
+            margin: auto 0;
+            background-color: grey;
+            grid-template-columns: repeat(4, 2fr);
+            width: 100%;
+        }
+
+        .box p {
+            color: white;
+            font-family: sans-serif;
+            font-size: 2vw;
+        }
+
+        .adresse {
+            grid-column-start: 2;
+        }
+
+        .openinghours {
+            grid-column-start: 3;
+        }
+
         @media screen and (min-width:600px) {
             #indhold {
                 grid-template-columns: 1fr;
+            }
+
+            .box p {
+                font-size: 1.2vw;
             }
         }
 
@@ -66,7 +93,15 @@
             <p class="pris"></p>
         </article>
     </template>
-    <footer></footer>
+    <footer>
+        <div class="box adresse">
+            <p>Adresse:<br>Grønnegade 9<br>1234 København K</p>
+        </div>
+        <div class="box openinghours">
+            <p>Åbeningstider: Mandag - Fredag 10:30 - 22:00</p>
+            <p>Lørdag 12:00 - 23:00</p>
+        </div>
+    </footer>
     <script>
         let retter;
         let filter = "alle";
