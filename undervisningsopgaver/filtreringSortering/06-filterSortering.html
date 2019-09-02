@@ -42,18 +42,19 @@
                 grid-template-columns: repeat(3, 1fr);
             }
         }
+
     </style>
 </head>
 
 <body>
 
     <nav>
-        <button class="filter" data-køn="alle">Alle</button>
+        <button class="filter valgt" data-køn="alle">Alle</button>
         <button class="filter" data-køn="m">Mænd</button>
-        <button class="filter valgt" data-køn="k">Kvinder</button>
+        <button class="filter" data-køn="k">Kvinder</button>
         <button class="filter" data-køn="andet">Andet</button>
     </nav>
-
+    <h1>Alle</h1>
     <section id="liste">
     </section>
     <template>
@@ -72,7 +73,7 @@
     </template>
     <script>
         let personer;
-        let filter = "k";
+        let filter = "alle";
         const listeindhold = document.querySelector("#liste");
         const personTemplate = document.querySelector("template");
 
@@ -89,6 +90,7 @@
 
             //vis datalisten på siden
             visPersoner();
+            addEventListenersToButtons();
 
         }
 
@@ -97,7 +99,7 @@
 
             personer.feed.entry.forEach(person => {
 
-                if (person.gsx$køn.$t == filter) {
+                if (filter == "alle" || filter == person.gsx$køn.$t) {
 
                     const klon = personTemplate.cloneNode(true).content;
 
@@ -117,5 +119,28 @@
             })
 
         }
+
+        function addEventListenersToButtons() {
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.addEventListener("click", filtrering);
+            })
+
+        }
+
+        function filtrering() {
+            filter = this.dataset.køn;
+
+            document.querySelector("h1").textContent = this.textContent;
+
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.classList.remove("valgt");
+            })
+            this.classList.add("valgt");
+            //vis datalisten på siden
+            visPersoner();
+        }
+
     </script>
-</body></html>
+</body>
+
+</html>
