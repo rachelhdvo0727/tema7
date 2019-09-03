@@ -31,6 +31,14 @@
             margin: 3vw;
         }
 
+        .popup {
+            position: fixed;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: aqua;
+        }
+
         @media screen and (min-width:780px) {
             article {
                 grid-template-columns: repeat(2, 1fr);
@@ -47,45 +55,40 @@
 </head>
 
 <body>
-
     <nav>
-        <button class="filter valgt" data-køn="alle" data-hold="alle">Alle</button>
-        <button class="filter" data-køn="k" data-hold="alle">Kvinder</button>
-        <button class="filter" data-køn="m" data-hold="alle">Mænd</button>
-        <button class="filter" data-køn="andet" data-hold="alle">Andet</button>
-        <button class="filter-hold" data-køn="alle" data-hold="a">Hold A</button>
-        <button class="filter-hold" data-køn="alle" data-hold="b">Hold B</button>
+        <button class="filter valgt" data-køn="alle">Alle</button>
+        <button class="filter" data-køn="m">Mænd</button>
+        <button class="filter" data-køn="k">Kvinder</button>
+        <button class="filter" data-køn="andet">Andet</button>
     </nav>
-
     <h1>Alle</h1>
     <section id="liste">
     </section>
-
     <template>
-        <article>
-            <div class="item">
-                <h2></h2>
-                <img src="" alt="">
-                <a href="" class="github"></a>
-                <p class="email"></p>
-                <p class="alder"></p>
-                <p class="koen"></p>
-                <p class="hold"></p>
-                <p class="historie"></p>
-            </div>
+        <article class="item">
+            <h2></h2>
+            <img src="" alt="">
+            <a href="" class="github"></a>
+            <p class="email"></p>
+            <p class="alder"></p>
+            <p class="koen"></p>
+            <p class="hold"></p>
+            <p class="historie"></p>
         </article>
     </template>
 
+    <div class="popup"></div>
+
     <script>
         let personer;
-        let filterHold = "alle";
-        let filterKøn = "alle";
+        let filter = "alle";
         const listeindhold = document.querySelector("#liste");
         const personTemplate = document.querySelector("template");
 
         document.addEventListener("DOMContentLoaded", hentJson);
 
         async function hentJson() {
+
             //hent data filen
             const myJson = await fetch("https://spreadsheets.google.com/feeds/list/1Xge7slZ9dEOTCn1Yxl3OE4xgvrXOL8Y_iu3WN1yGB1U/od6/public/values?alt=json");
 
@@ -103,14 +106,20 @@
             listeindhold.innerHTML = "";
 
             personer.feed.entry.forEach(person => {
-                if ((filterKøn == "alle" || filterKøn == person.gsx$køn.$t) && (filterHold == "alle" || filterHold == person.gsx$hold.$t)) {
+
+                if (filter == "alle" || filter == person.gsx$køn.$t) {
+
                     const klon = personTemplate.cloneNode(true).content;
 
                     klon.querySelector("h2").textContent = person.gsx$navn.$t;
                     klon.querySelector("img").src = person.gsx$billede.$t;
                     klon.querySelector("a").textContent = person.gsx$github.$t;
                     klon.querySelector(".email").textContent = `Email: ${person.gsx$email.$t}`;
-                    klon.querySelector(".hold").textContent = `Hold: ${person.gsx$hold.$t}`;
+
+                    //klon.querySelector(".alder").textContent = `Alder: ${person.gsx$alder.$t}`;
+                    //klon.querySelector(".koen").textContent = `Køn: ${person.gsx$køn.$t}`;
+                    //klon.querySelector(".hold").textContent = `Hold: ${person.gsx$hold.$t}`;
+                    //klon.querySelector(".historie").textContent = `Historie: ${person.gsx$historie.$t}`;
 
                     listeindhold.appendChild(klon);
                 }
@@ -121,35 +130,22 @@
 
         function addEventListenersToButtons() {
             document.querySelectorAll(".filter").forEach(elm => {
-                elm.addEventListener("click", filtreringKøn);
-            })
-            document.querySelectorAll(".filter-hold").forEach(elm => {
-                elm.addEventListener("click", filtreringHold);
+                elm.addEventListener("click", filtrering);
             })
 
         }
 
-        function filtreringKøn() {
-            filterKøn = this.dataset.køn;
+        function filtrering() {
+            filter = this.dataset.køn;
 
             document.querySelector("h1").textContent = this.textContent;
 
             document.querySelectorAll(".filter").forEach(elm => {
                 elm.classList.remove("valgt");
-            });
+            })
             this.classList.add("valgt");
             //vis datalisten på siden
             visPersoner();
-        }
-
-        function filtreringHold() {
-            filterHold = this.dataset.hold;
-            document.querySelector("h1").textContent = this.textContent;
-            document.querySelectorAll(".filter-hold").forEach(elm => {
-                elm.classList.remove("valgt");
-            });
-            this.classList.add("valgt");
-
         }
 
     </script>
