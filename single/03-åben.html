@@ -31,12 +31,27 @@
             margin: 3vw;
         }
 
-        .popup {
+        #popup {
             position: fixed;
             top: 0;
             width: 100vw;
             height: 100vh;
             background-color: aqua;
+            display: none;
+        }
+
+        .indhold {
+            width: 70vw;
+            min-height: 50vh;
+            padding: 3vw;
+            margin: 4rem auto;
+            background-color: beige;
+        }
+
+        .luk {
+            position: fixed;
+            right: 0;
+            font-size: 2rem;
         }
 
         @media screen and (min-width:780px) {
@@ -50,11 +65,26 @@
                 grid-template-columns: repeat(3, 1fr);
             }
         }
-
     </style>
 </head>
 
 <body>
+    <div id="popup">
+        <button class="luk">X</button>
+        <section class="indhold">
+            <article class="enkeltPerson">
+                <h2></h2>
+                <img src="" alt="">
+                <a href="" class="github"></a>
+                <p class="email"></p>
+                <p class="alder"></p>
+                <p class="koen"></p>
+                <p class="hold"></p>
+                <p class="historie"></p>
+            </article>
+        </section>
+    </div>
+
     <nav>
         <button class="filter valgt" data-køn="alle">Alle</button>
         <button class="filter" data-køn="m">Mænd</button>
@@ -68,19 +98,13 @@
         <article>
             <div class="item">
                 <h2></h2>
-                <img src="" alt="">
+                <img src="" alt=""><br>
                 <a href="" class="github"></a>
                 <p class="email"></p>
-                <p class="alder"></p>
-                <p class="koen"></p>
-                <p class="hold"></p>
-                <p class="historie"></p>
             </div>
         </article>
     </template>
 
-    <div class="popup">
-    </div>
 
     <script>
         let personer;
@@ -118,16 +142,30 @@
                     klon.querySelector("img").src = person.gsx$billede.$t;
                     klon.querySelector("a").textContent = person.gsx$github.$t;
                     klon.querySelector(".email").textContent = `Email: ${person.gsx$email.$t}`;
-
-                    //klon.querySelector(".alder").textContent = `Alder: ${person.gsx$alder.$t}`;
-                    //klon.querySelector(".koen").textContent = `Køn: ${person.gsx$køn.$t}`;
-                    //klon.querySelector(".hold").textContent = `Hold: ${person.gsx$hold.$t}`;
-                    //klon.querySelector(".historie").textContent = `Historie: ${person.gsx$historie.$t}`;
-
                     listeindhold.appendChild(klon);
+
+                    //kald en anonym function () og kald alle
+                    listeindhold.lastElementChild.addEventListener("click", () => {
+                        visSingle(person)
+                    });
                 }
 
             })
+
+        }
+
+        function visSingle(person) {
+            document.querySelector("#popup").style.display = "block";
+
+            document.querySelector(".enkeltPerson h2").textContent = person.gsx$navn.$t;
+            document.querySelector(".enkeltPerson img").src = person.gsx$billede.$t;
+            document.querySelector(".enkeltPerson a").textContent = person.gsx$github.$t;
+            document.querySelector(".enkeltPerson .email").textContent = `Email: ${person.gsx$email.$t}`;
+            document.querySelector(".enkeltPerson .alder").textContent = `Alder: ${person.gsx$alder.$t}`;
+            document.querySelector(".enkeltPerson .koen").textContent = `Køn: ${person.gsx$køn.$t}`;
+            document.querySelector(".enkeltPerson .hold").textContent = `Hold: ${person.gsx$hold.$t}`;
+            document.querySelector(".enkeltPerson .historie").textContent = `Historie: ${person.gsx$historie.$t}`;
+
 
         }
 
@@ -150,8 +188,5 @@
             //vis datalisten på siden
             visPersoner();
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
