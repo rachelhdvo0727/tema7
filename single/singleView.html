@@ -19,7 +19,6 @@
             font-size: 2rem;
             cursor: pointer;
         }
-
     </style>
 </head>
 
@@ -64,9 +63,9 @@
                     document.querySelector(".historie").textContent = `Historie: ${person.gsx$historie.$t}`;
                 }
             })
+            document.querySelector(".luk").addEventListener("click", () => {
+                history.back();
+            })
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
