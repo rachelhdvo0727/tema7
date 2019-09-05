@@ -10,13 +10,22 @@
             width: 100%;
         }
 
+        body {
+            background-color: antiquewhite;
+        }
+
         article:nth-child(odd) {
-            background-color: grey;
+            background-color: skyblue;
         }
 
         nav {
             text-align: center;
             margin: 2vw;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 10vw;
         }
 
         #indhold {
@@ -25,13 +34,21 @@
             margin: 5vw;
         }
 
-        article,
-        .box {
+        article {
             padding: 1vw;
         }
 
+        button {
+            border-radius: 3vw;
+
+        }
+
+        button:hover {
+            box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 30px 0 rgba(0, 0, 0, 0.19);
+        }
+
         .valgt {
-            background-color: orange;
+            background-color: coral;
         }
 
         #popup {
@@ -47,14 +64,14 @@
             width: 70vw;
             min-height: 50vh;
             padding: 3vw;
-            margin: 4rem auto;
+            margin: 7vw auto;
             background-color: beige;
         }
 
         .luk {
             position: fixed;
             right: 0;
-            font-size: 2rem;
+            font-size: 3vw;
         }
 
         footer {
@@ -87,14 +104,33 @@
             .box p {
                 font-size: 1.2vw;
             }
+
+            h1 {
+                font-size: 4vw;
+            }
         }
 
         @media screen and (min-width:780px) {
             #indhold {
                 grid-template-columns: repeat(3, 1fr);
             }
-        }
 
+            #enret {
+                width: 50vw;
+                min-height: 50vh;
+                padding: 2.5vw;
+                margin: 2vw auto;
+            }
+
+            .luk {
+                margin: 1vw;
+                font-size: 2.5vw;
+            }
+
+            button {
+                font-size: 1.3vw;
+            }
+        }
     </style>
 </head>
 
@@ -110,8 +146,6 @@
             </article>
         </section>
     </div>
-
-    <section id="splash">splash</section>
     <nav>
         <button class="filter valgt" data-kategori="alle">Alle</button>
         <button class="filter" data-kategori="forretter">Forretter</button>
@@ -124,7 +158,7 @@
     <template>
         <article>
             <img src="" alt="">
-            <h2></h2>
+            <h3></h3>
             <p class="text"></p>
             <p class="pris"></p>
         </article>
@@ -164,7 +198,7 @@
                     let klon = retTemplate.cloneNode(true).content;
 
                     klon.querySelector("img").src = "imgs/small/" + ret.gsx$billede.$t + "-sm.jpg";
-                    klon.querySelector("h2").textContent = ret.gsx$navn.$t;
+                    klon.querySelector("h3").textContent = ret.gsx$navn.$t;
                     klon.querySelector(".text").textContent = ret.gsx$kort.$t;
                     klon.querySelector(".pris").textContent = `Pris: ${ret.gsx$pris.$t},- kr.`;
 
@@ -180,8 +214,9 @@
         function visEnret(ret) {
             document.querySelector("#popup").style.display = "block";
             document.querySelector("#popup").addEventListener("click", lukNed);
+
             document.querySelector(".enRetview img").src = "imgs/large/" + ret.gsx$billede.$t + ".jpg";
-            document.querySelector(".enRetview h2").textContent = ret.gsx$navn.$t;
+            document.querySelector(".enRetview h3").textContent = ret.gsx$navn.$t;
             document.querySelector(".enRetview .lang").textContent = ret.gsx$lang.$t;
             document.querySelector(".enRetview .pris").textContent = `Pris: ${ret.gsx$pris.$t},- kr.`;
         }
@@ -206,8 +241,5 @@
 
             visMenuListen();
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
