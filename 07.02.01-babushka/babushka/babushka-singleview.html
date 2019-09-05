@@ -10,13 +10,22 @@
             width: 100%;
         }
 
+        body {
+            background-color: antiquewhite;
+        }
+
         article:nth-child(odd) {
-            background-color: grey;
+            background-color: skyblue;
         }
 
         nav {
             text-align: center;
             margin: 2vw;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 10vw;
         }
 
         #indhold {
@@ -25,13 +34,21 @@
             margin: 5vw;
         }
 
-        article,
-        .box {
+        article {
             padding: 1vw;
         }
 
+        button {
+            border-radius: 3vw;
+
+        }
+
+        button:hover {
+            box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 30px 0 rgba(0, 0, 0, 0.19);
+        }
+
         .valgt {
-            background-color: orange;
+            background-color: coral;
         }
 
         #popup {
@@ -47,14 +64,14 @@
             width: 70vw;
             min-height: 50vh;
             padding: 3vw;
-            margin: 4rem auto;
+            margin: 7vw auto;
             background-color: beige;
         }
 
         .luk {
             position: fixed;
             right: 0;
-            font-size: 2rem;
+            font-size: 3vw;
         }
 
         footer {
@@ -87,14 +104,33 @@
             .box p {
                 font-size: 1.2vw;
             }
+
+            h1 {
+                font-size: 4vw;
+            }
         }
 
         @media screen and (min-width:780px) {
             #indhold {
                 grid-template-columns: repeat(3, 1fr);
             }
-        }
 
+            #enret {
+                width: 50vw;
+                min-height: 50vh;
+                padding: 2.5vw;
+                margin: 2vw auto;
+            }
+
+            .luk {
+                margin: 1vw;
+                font-size: 2.5vw;
+            }
+
+            button {
+                font-size: 1.3vw;
+            }
+        }
     </style>
 </head>
 
@@ -192,8 +228,5 @@
 
             visMenuListen();
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
