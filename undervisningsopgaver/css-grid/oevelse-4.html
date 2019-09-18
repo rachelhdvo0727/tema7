@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Øvelse 4</title>
+    <style>
+        main {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+            height: 100vh;
+        }
+
+        .item {
+            background: rgb(119, 119, 119);
+            border: 1vw solid #8e6c20;
+            padding: 1vw;
+        }
+
+        .item-1,
+        .item-4,
+        .item-5,
+        .item-8,
+        .item-9,
+        .item-12 {
+            grid-column: span 1;
+
+        }
+
+        .item-2,
+        .item-3,
+        .item-6,
+        .item-7,
+        .item-10,
+        .item-11 {
+            grid-column: span 3;
+        }
+
+        .item:nth-child(1),
+        .item:nth-last-child(1) {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+    <div class="container">
+        <div class="item item-1"></div>
+        <div class="item item-2">
+            <div class="item item-4"></div>
+            <div class="item item-4"></div>
+            <div class="item item-4"></div>
+            <div class="item item-4"></div>
+            <div class="item item-4"></div>
+            <div class="item item-4"></div>
+            <div class="item item-4"></div>
+            <div class="item item-4"></div>
+        </div>
+        <div class="item item-3"></div>
+    </div>
+-->
+    <main>
+        <div class="item item-1">
+           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+        </div>
+        <div class="item item-2">
+        <p>lorem ipsum dolor amet consectur adipiscing elit. Ducimus, unde!</p>
+        </div>
+        <div class="item item-3">
+            <p>lorem ipsum dolor amet consectur adipiscing elit. Ducimus, unde!</p>
+        </div>
+        <div class="item item-4">
+             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="item item-5">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+        </div>
+        <div class="item item-6">
+            <p>lorem ipsum dolor amet consectur adipiscing elit. Ducimus, unde!</p>
+        </div>
+        <div class="item item-7">
+            <p>lorem ipsum dolor amet consectur adipiscing elit. Ducimus, unde!</p>
+        </div>
+        <div class="item item-8">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+        </div>
+        <div class="item item-9">
+             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>.
+        </div>
+        <div class="item item-10">
+            <p>lorem ipsum dolor amet consectur adipiscing elit. Ducimus, unde!</p>
+        </div>
+        <div class="item item-11">
+            <p>lorem ipsum dolor amet consectur adipiscing elit. Ducimus, unde!</p>
+        </div>
+        <div class="item item-12">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </main>
+    <script></script>
+</body></html>
