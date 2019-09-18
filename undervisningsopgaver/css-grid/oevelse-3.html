@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Øvelse 3</title>
+    <style>
+        main {
+            display: grid;
+            height: 100vh;
+            grid-gap: 10px;
+            grid-template-areas:
+                "header header header header"
+                "main main main main"
+                "footer footer footer footer";
+            grid-template-rows: 1fr 2fr 1fr 1fr;
+
+        }
+
+        .item {
+            background: rgba(20, 40, 80, 1);
+        }
+
+        .item-1 {
+            grid-column: span 4;
+            grid-row: span 1;
+            background: #ca1;
+        }
+
+        .item-2 {
+            display: inline-grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+            grid-template-rows: 1fr 1fr;
+            grid-row: span 2;
+            grid-column: span 4;
+            padding: 2vw;
+            background: green;
+        }
+
+        .item-3 {
+            grid-row-start: 4;
+            grid-column: span 4;
+        }
+
+        .item-4 {
+            grid-row: span 1;
+            background: #ca1;
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+    <div class="container">
+        <div class="item item-1"></div>
+        <div class="item item-2">
+            <div class="item item-4"></div>
+            <div class="item item-4"></div>
+            <div class="item item-4"></div>
+            <div class="item item-4"></div>
+            <div class="item item-4"></div>
+            <div class="item item-4"></div>
+            <div class="item item-4"></div>
+            <div class="item item-4"></div>
+        </div>
+        <div class="item item-3"></div>
+    </div>
+-->
+    <main class="container">
+        <div class="item item-1"></div>
+        <div class="item item-2">
+            <div class="item item-4"></div>
+            <div class="item item-4"></div>
+            <div class="item item-4"></div>
+            <div class="item item-4"></div>
+            <div class="item item-4"></div>
+            <div class="item item-4"></div>
+            <div class="item item-4"></div>
+            <div class="item item-4"></div>
+        </div>
+        <div class="item item-3"></div>
+        <div class="item item-4"></div>
+    </main>
+    <script></script>
+</body></html>
